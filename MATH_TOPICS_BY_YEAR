@@ -1,0 +1,62 @@
+const MATH_TOPICS_BY_YEAR = {
+    'Tahun 1': [
+        { id: 'math_t1_nombor', name: 'Nombor & Operasi', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t1_wang', name: 'Wang', icon: '💰', quizKey: 'math_t2' },
+        { id: 'math_t1_masa', name: 'Masa & Waktu', icon: '⏰', quizKey: 'math_t3' },
+        { id: 'math_t1_ruang', name: 'Bentuk & Ruang', icon: '🔺', quizKey: 'math_t4' },
+        { id: 'math_t1_data', name: 'Data', icon: '📊', quizKey: 'math_t1' }
+    ],
+
+    'Tahun 2': [
+        { id: 'math_t2_nombor', name: 'Nombor & Operasi', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t2_wang', name: 'Wang', icon: '💰', quizKey: 'math_t2' },
+        { id: 'math_t2_masa', name: 'Masa & Waktu', icon: '⏰', quizKey: 'math_t3' },
+        { id: 'math_t2_ukuran', name: 'Ukuran', icon: '📏', quizKey: 'math_t1' },
+        { id: 'math_t2_ruang', name: 'Ruang & Bentuk', icon: '🔷', quizKey: 'math_t4' },
+        { id: 'math_t2_data', name: 'Data', icon: '📊', quizKey: 'math_t1' }
+    ],
+
+    'Tahun 3': [
+        { id: 'math_t3_nombor', name: 'Nombor & Operasi', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t3_wang', name: 'Wang', icon: '💰', quizKey: 'math_t2' },
+        { id: 'math_t3_masa', name: 'Masa & Waktu', icon: '⏰', quizKey: 'math_t3' },
+        { id: 'math_t3_ukuran', name: 'Ukuran', icon: '📏', quizKey: 'math_t1' },
+        { id: 'math_t3_ruang', name: 'Ruang & Bentuk', icon: '🔷', quizKey: 'math_t4' },
+        { id: 'math_t3_pecahan', name: 'Pecahan', icon: '🍕', quizKey: 'math_t5' },
+        { id: 'math_t3_data', name: 'Data', icon: '📊', quizKey: 'math_t1' }
+    ],
+
+    'Tahun 4': [
+        { id: 'math_t4_nombor', name: 'Nombor & Operasi', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t4_pecahan', name: 'Pecahan', icon: '🍕', quizKey: 'math_t5' },
+        { id: 'math_t4_perpuluhan', name: 'Perpuluhan', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t4_wang', name: 'Wang', icon: '💰', quizKey: 'math_t2' },
+        { id: 'math_t4_masa', name: 'Masa & Waktu', icon: '⏰', quizKey: 'math_t3' },
+        { id: 'math_t4_ukuran', name: 'Ukuran', icon: '📏', quizKey: 'math_t1' },
+        { id: 'math_t4_ruang', name: 'Ruang & Bentuk', icon: '🔷', quizKey: 'math_t4' },
+        { id: 'math_t4_data', name: 'Data', icon: '📊', quizKey: 'math_t1' }
+    ],
+
+    'Tahun 5': [
+        { id: 'math_t5_nombor', name: 'Nombor & Operasi', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t5_pecahan', name: 'Pecahan', icon: '🍕', quizKey: 'math_t5' },
+        { id: 'math_t5_perpuluhan', name: 'Perpuluhan & Peratus', icon: '💯', quizKey: 'math_t1' },
+        { id: 'math_t5_wang', name: 'Wang', icon: '💰', quizKey: 'math_t2' },
+        { id: 'math_t5_masa', name: 'Masa & Waktu', icon: '⏰', quizKey: 'math_t3' },
+        { id: 'math_t5_ukuran', name: 'Ukuran', icon: '📏', quizKey: 'math_t1' },
+        { id: 'math_t5_ruang', name: 'Ruang & Bentuk', icon: '🔷', quizKey: 'math_t4' },
+        { id: 'math_t5_data', name: 'Data', icon: '📊', quizKey: 'math_t1' }
+    ],
+
+    'Tahun 6': [
+        { id: 'math_t6_nombor', name: 'Nombor & Operasi', icon: '🔢', quizKey: 'math_t1' },
+        { id: 'math_t6_pecahan', name: 'Pecahan', icon: '🍕', quizKey: 'math_t5' },
+        { id: 'math_t6_perpuluhan', name: 'Perpuluhan & Peratus', icon: '💯', quizKey: 'math_t1' },
+        { id: 'math_t6_wang', name: 'Wang', icon: '💰', quizKey: 'math_t2' },
+        { id: 'math_t6_masa', name: 'Masa & Waktu', icon: '⏰', quizKey: 'math_t3' },
+        { id: 'math_t6_ukuran', name: 'Ukuran', icon: '📏', quizKey: 'math_t1' },
+        { id: 'math_t6_ruang', name: 'Ruang & Bentuk', icon: '🔷', quizKey: 'math_t4' },
+        { id: 'math_t6_data', name: 'Data', icon: '📊', quizKey: 'math_t1' },
+        { id: 'math_t6_nisbah', name: 'Nisbah', icon: '⚖️', quizKey: 'math_t1' }
+    ]
+};
