@@ -1,0 +1,159 @@
+const SubjectDashboard = ({ user, subject, setView, setQuizTarget }) => {
+    const [selectedYear, setSelectedYear] = useState('Tahun 1');
+    const [expandedTopic, setExpandedTopic] = useState(null);
+
+    if (!subject) return null;
+
+    const isMath = subject.id === 'math';
+
+    const topics = isMath
+        ? (MATH_TOPICS_BY_YEAR[selectedYear] || [])
+        : subject.topics;
+
+    const handleStartQuiz = (topic) => {
+        setQuizTarget({
+            subject: subject.id,
+            topic: topic.quizKey || topic.id,
+            year: selectedYear,
+            topicName: topic.name
+        });
+
+        setView('quiz');
+    };
+
+    return (
+        <div className="pb-28 max-w-3xl mx-auto h-full flex flex-col">
+
+            <div className={`${subject.color} p-6 rounded-b-[40px] shadow-sm relative overflow-hidden`}>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-white opacity-20 rounded-full -mr-10 -mt-10"></div>
+
+                <button
+                    onClick={() => setView('home')}
+                    className="w-10 h-10 bg-white/50 hover:bg-white rounded-full flex items-center justify-center shadow-sm mb-4 relative z-10 cursor-pointer"
+                >
+                    <i className="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div className="flex items-center gap-4 relative z-10">
+                    <div className="text-5xl bg-white/80 w-20 h-20 rounded-3xl flex items-center justify-center shadow-sm">
+                        {subject.icon}
+                    </div>
+
+                    <div>
+                        <h2 className="text-2xl md:text-3xl font-black text-brand-textDark leading-tight">
+                            {subject.short}
+                        </h2>
+
+                        <p className="font-bold opacity-80 text-sm mt-1">
+                            {isMath ? 'Matematik Tahun 1 – 6' : `Level: ${user.level.name}`}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="px-4 mt-6 flex-grow">
+
+                {isMath && (
+                    <div className="mb-5">
+                        <h3 className="font-black text-brand-textDark text-lg mb-3">
+                            📚 Pilih Tahun
+                        </h3>
+
+                        <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+                            {Object.keys(MATH_TOPICS_BY_YEAR).map(year => (
+                                <button
+                                    key={year}
+                                    onClick={() => {
+                                        setSelectedYear(year);
+                                        setExpandedTopic(null);
+                                    }}
+                                    className={`px-5 py-2.5 rounded-full font-black whitespace-nowrap text-sm transition-all ${
+                                        selectedYear === year
+                                            ? 'bg-brand-textDark text-white shadow-md scale-105'
+                                            : 'bg-white text-brand-textGray shadow-sm'
+                                    }`}
+                                >
+                                    {year}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                <div className="space-y-3">
+
+                    {topics.map(topic => (
+                        <div
+                            key={topic.id}
+                            className="bg-white rounded-[24px] overflow-hidden shadow-sm border border-gray-100"
+                        >
+
+                            <div
+                                onClick={() =>
+                                    setExpandedTopic(
+                                        expandedTopic === topic.id
+                                            ? null
+                                            : topic.id
+                                    )
+                                }
+                                className="p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50"
+                            >
+
+                                <div className="flex items-center gap-4">
+
+                                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl bg-gray-100">
+                                        {topic.icon}
+                                    </div>
+
+                                    <div>
+                                        <h3 className="font-black text-brand-textDark text-lg leading-tight">
+                                            {topic.name}
+                                        </h3>
+
+                                        <p className="text-xs font-bold text-gray-400 uppercase">
+                                            Sedia untuk diterokai ✨
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <i
+                                    className={`fa-solid fa-chevron-down transition-transform text-gray-300 ${
+                                        expandedTopic === topic.id
+                                            ? 'rotate-180'
+                                            : ''
+                                    }`}
+                                ></i>
+
+                            </div>
+
+                            {expandedTopic === topic.id && (
+                                <div className="p-4 bg-gray-50 border-t border-gray-100 grid grid-cols-2 gap-2">
+
+                                    <button
+                                        onClick={() => handleStartQuiz(topic)}
+                                        className="bg-brand-primaryPink/30 hover:bg-brand-primaryPink/50 text-pink-700 font-bold py-4 rounded-2xl text-sm flex flex-col items-center gap-1 cursor-pointer"
+                                    >
+                                        <span className="text-2xl">🎮</span>
+                                        Main
+                                    </button>
+
+                                    <button
+                                        onClick={() => handleStartQuiz(topic)}
+                                        className="bg-brand-secondaryBlue/30 hover:bg-brand-secondaryBlue/50 text-blue-700 font-bold py-4 rounded-2xl text-sm flex flex-col items-center gap-1 cursor-pointer"
+                                    >
+                                        <span className="text-2xl">❓</span>
+                                        Quiz
+                                    </button>
+
+                                </div>
+                            )}
+
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+        </div>
+    );
+};
